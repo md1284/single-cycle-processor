@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at clk_dll.v(9): always construct contains both blocking and non-blocking assignments File: C:/intelFPGA_lite/18.1/SingleCycleProcess/clk_dll.v Line: 9

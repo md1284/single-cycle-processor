@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clk_dll:comb_3|out_clk'
+Slack : -11.968
+TNS   : -3402.664
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -5.383
+TNS   : -128.870
+
+Type  : Slow 1100mV 85C Model Hold 'clk_dll:comb_3|out_clk'
+Slack : 0.389
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : 0.450
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.430
+TNS   : -25.760
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_dll:comb_3|out_clk'
+Slack : -0.394
+TNS   : -249.265
+
+Type  : Slow 1100mV 0C Model Setup 'clk_dll:comb_3|out_clk'
+Slack : -11.924
+TNS   : -3340.338
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -5.507
+TNS   : -127.382
+
+Type  : Slow 1100mV 0C Model Hold 'clk_dll:comb_3|out_clk'
+Slack : 0.359
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : 0.450
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.470
+TNS   : -27.902
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_dll:comb_3|out_clk'
+Slack : -0.394
+TNS   : -241.401
+
+Type  : Fast 1100mV 85C Model Setup 'clk_dll:comb_3|out_clk'
+Slack : -6.871
+TNS   : -1934.004
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -3.232
+TNS   : -54.560
+
+Type  : Fast 1100mV 85C Model Hold 'clk_dll:comb_3|out_clk'
+Slack : 0.153
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : 0.245
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.484
+TNS   : -4.787
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_dll:comb_3|out_clk'
+Slack : -0.119
+TNS   : -6.471
+
+Type  : Fast 1100mV 0C Model Setup 'clk_dll:comb_3|out_clk'
+Slack : -6.145
+TNS   : -1723.691
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -2.892
+TNS   : -47.189
+
+Type  : Fast 1100mV 0C Model Hold 'clk_dll:comb_3|out_clk'
+Slack : 0.127
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : 0.233
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.491
+TNS   : -4.702
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_dll:comb_3|out_clk'
+Slack : -0.051
+TNS   : -0.998
+
+------------------------------------------------------------

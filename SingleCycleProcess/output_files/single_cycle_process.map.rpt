@@ -1,0 +1,1354 @@
+Analysis & Synthesis report for single_cycle_process
+Wed Dec 23 18:37:21 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "seg:comb_158|bin2bcd:comb_4"
+ 14. Port Connectivity Checks: "seg:comb_158|bin2bcd:comb_3"
+ 15. Port Connectivity Checks: "mux:comb_156"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Dec 23 18:37:21 2020       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; single_cycle_process                        ;
+; Top-level Entity Name           ; single_cycle_process                        ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 361                                         ;
+; Total pins                      ; 44                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                 ;
++---------------------------------------------------------------------------------+----------------------+----------------------+
+; Option                                                                          ; Setting              ; Default Value        ;
++---------------------------------------------------------------------------------+----------------------+----------------------+
+; Device                                                                          ; 5CSXFC6D6F31C6       ;                      ;
+; Top-level entity name                                                           ; single_cycle_process ; single_cycle_process ;
+; Family name                                                                     ; Cyclone V            ; Cyclone V            ;
+; Use smart compilation                                                           ; Off                  ; Off                  ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                   ; On                   ;
+; Enable compact report table                                                     ; Off                  ; Off                  ;
+; Restructure Multiplexers                                                        ; Auto                 ; Auto                 ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                  ; Off                  ;
+; Create Debugging Nodes for IP Cores                                             ; Off                  ; Off                  ;
+; Preserve fewer node names                                                       ; On                   ; On                   ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable               ; Enable               ;
+; Verilog Version                                                                 ; Verilog_2001         ; Verilog_2001         ;
+; VHDL Version                                                                    ; VHDL_1993            ; VHDL_1993            ;
+; State Machine Processing                                                        ; Auto                 ; Auto                 ;
+; Safe State Machine                                                              ; Off                  ; Off                  ;
+; Extract Verilog State Machines                                                  ; On                   ; On                   ;
+; Extract VHDL State Machines                                                     ; On                   ; On                   ;
+; Ignore Verilog initial constructs                                               ; Off                  ; Off                  ;
+; Iteration limit for constant Verilog loops                                      ; 5000                 ; 5000                 ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                  ; 250                  ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                   ; On                   ;
+; Infer RAMs from Raw Logic                                                       ; On                   ; On                   ;
+; Parallel Synthesis                                                              ; On                   ; On                   ;
+; DSP Block Balancing                                                             ; Auto                 ; Auto                 ;
+; NOT Gate Push-Back                                                              ; On                   ; On                   ;
+; Power-Up Don't Care                                                             ; On                   ; On                   ;
+; Remove Redundant Logic Cells                                                    ; Off                  ; Off                  ;
+; Remove Duplicate Registers                                                      ; On                   ; On                   ;
+; Ignore CARRY Buffers                                                            ; Off                  ; Off                  ;
+; Ignore CASCADE Buffers                                                          ; Off                  ; Off                  ;
+; Ignore GLOBAL Buffers                                                           ; Off                  ; Off                  ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                  ; Off                  ;
+; Ignore LCELL Buffers                                                            ; Off                  ; Off                  ;
+; Ignore SOFT Buffers                                                             ; On                   ; On                   ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                  ; Off                  ;
+; Optimization Technique                                                          ; Balanced             ; Balanced             ;
+; Carry Chain Length                                                              ; 70                   ; 70                   ;
+; Auto Carry Chains                                                               ; On                   ; On                   ;
+; Auto Open-Drain Pins                                                            ; On                   ; On                   ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                  ; Off                  ;
+; Auto ROM Replacement                                                            ; On                   ; On                   ;
+; Auto RAM Replacement                                                            ; On                   ; On                   ;
+; Auto DSP Block Replacement                                                      ; On                   ; On                   ;
+; Auto Shift Register Replacement                                                 ; Auto                 ; Auto                 ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                 ; Auto                 ;
+; Auto Clock Enable Replacement                                                   ; On                   ; On                   ;
+; Strict RAM Replacement                                                          ; Off                  ; Off                  ;
+; Allow Synchronous Control Signals                                               ; On                   ; On                   ;
+; Force Use of Synchronous Clear Signals                                          ; Off                  ; Off                  ;
+; Auto Resource Sharing                                                           ; Off                  ; Off                  ;
+; Allow Any RAM Size For Recognition                                              ; Off                  ; Off                  ;
+; Allow Any ROM Size For Recognition                                              ; Off                  ; Off                  ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                  ; Off                  ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                   ; On                   ;
+; Ignore translate_off and synthesis_off directives                               ; Off                  ; Off                  ;
+; Timing-Driven Synthesis                                                         ; On                   ; On                   ;
+; Report Parameter Settings                                                       ; On                   ; On                   ;
+; Report Source Assignments                                                       ; On                   ; On                   ;
+; Report Connectivity Checks                                                      ; On                   ; On                   ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                  ; Off                  ;
+; Synchronization Register Chain Length                                           ; 3                    ; 3                    ;
+; Power Optimization During Synthesis                                             ; Normal compilation   ; Normal compilation   ;
+; HDL message level                                                               ; Level2               ; Level2               ;
+; Suppress Register Optimization Related Messages                                 ; Off                  ; Off                  ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                 ; 5000                 ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                 ; 5000                 ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                  ; 100                  ;
+; Clock MUX Protection                                                            ; On                   ; On                   ;
+; Auto Gated Clock Conversion                                                     ; Off                  ; Off                  ;
+; Block Design Naming                                                             ; Auto                 ; Auto                 ;
+; SDC constraint protection                                                       ; Off                  ; Off                  ;
+; Synthesis Effort                                                                ; Auto                 ; Auto                 ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                   ; On                   ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                  ; Off                  ;
+; Analysis & Synthesis Message Level                                              ; Medium               ; Medium               ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                 ; Auto                 ;
+; Resource Aware Inference For Block RAM                                          ; On                   ; On                   ;
+; Automatic Parallel Synthesis                                                    ; On                   ; On                   ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                  ; Off                  ;
++---------------------------------------------------------------------------------+----------------------+----------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                     ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
+; bin2bcd.v                        ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/bin2bcd.v              ;         ;
+; seg_digit.v                      ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/seg_digit.v            ;         ;
+; update_pc.v                      ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/update_pc.v            ;         ;
+; seg.v                            ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/seg.v                  ;         ;
+; mux.v                            ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/mux.v                  ;         ;
+; register_memory.v                ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/register_memory.v      ;         ;
+; data_memory.v                    ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/data_memory.v          ;         ;
+; control.v                        ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/control.v              ;         ;
+; single_cycle_process.v           ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v ;         ;
+; memory.mem                       ; yes             ; User Unspecified File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/memory.mem             ;         ;
+; sign_ex.v                        ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/sign_ex.v              ;         ;
+; instruction_memory.v             ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/instruction_memory.v   ;         ;
+; clk_dll.v                        ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/clk_dll.v              ;         ;
+; alu_mips.v                       ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/alu_mips.v             ;         ;
+; aludec.v                         ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/SingleCycleProcess/aludec.v               ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                          ;
++---------------------------------------------+------------------------+
+; Resource                                    ; Usage                  ;
++---------------------------------------------+------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 650                    ;
+;                                             ;                        ;
+; Combinational ALUT usage for logic          ; 950                    ;
+;     -- 7 input functions                    ; 90                     ;
+;     -- 6 input functions                    ; 231                    ;
+;     -- 5 input functions                    ; 186                    ;
+;     -- 4 input functions                    ; 225                    ;
+;     -- <=3 input functions                  ; 218                    ;
+;                                             ;                        ;
+; Dedicated logic registers                   ; 361                    ;
+;                                             ;                        ;
+; I/O pins                                    ; 44                     ;
+;                                             ;                        ;
+; Total DSP Blocks                            ; 0                      ;
+;                                             ;                        ;
+; Maximum fan-out node                        ; clk_dll:comb_3|out_clk ;
+; Maximum fan-out                             ; 329                    ;
+; Total fan-out                               ; 5829                   ;
+; Average fan-out                             ; 4.17                   ;
++---------------------------------------------+------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                  ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                  ; Entity Name          ; Library Name ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------+----------------------+--------------+
+; |single_cycle_process          ; 950 (39)            ; 361 (0)                   ; 0                 ; 0          ; 44   ; 0            ; |single_cycle_process                                ; single_cycle_process ; work         ;
+;    |alu_mips:comb_113|         ; 206 (206)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|alu_mips:comb_113              ; alu_mips             ; work         ;
+;    |aludec:comb_93|            ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|aludec:comb_93                 ; aludec               ; work         ;
+;    |clk_dll:comb_3|            ; 43 (43)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|clk_dll:comb_3                 ; clk_dll              ; work         ;
+;    |control:comb_92|           ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|control:comb_92                ; control              ; work         ;
+;    |instruction_memory:comb_4| ; 27 (27)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|instruction_memory:comb_4      ; instruction_memory   ; work         ;
+;    |mux:comb_112|              ; 42 (42)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|mux:comb_112                   ; mux                  ; work         ;
+;    |mux:comb_115|              ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|mux:comb_115                   ; mux                  ; work         ;
+;    |mux:comb_156|              ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|mux:comb_156                   ; mux                  ; work         ;
+;    |register_memory:comb_111|  ; 378 (378)           ; 288 (288)                 ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|register_memory:comb_111       ; register_memory      ; work         ;
+;    |seg:comb_158|              ; 179 (1)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|seg:comb_158                   ; seg                  ; work         ;
+;       |bin2bcd:comb_3|         ; 55 (55)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|seg:comb_158|bin2bcd:comb_3    ; bin2bcd              ; work         ;
+;       |bin2bcd:comb_4|         ; 81 (81)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|seg:comb_158|bin2bcd:comb_4    ; bin2bcd              ; work         ;
+;       |seg_digit:comb_80|      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|seg:comb_158|seg_digit:comb_80 ; seg_digit            ; work         ;
+;       |seg_digit:comb_81|      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|seg:comb_158|seg_digit:comb_81 ; seg_digit            ; work         ;
+;       |seg_digit:comb_82|      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|seg:comb_158|seg_digit:comb_82 ; seg_digit            ; work         ;
+;       |seg_digit:comb_83|      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|seg:comb_158|seg_digit:comb_83 ; seg_digit            ; work         ;
+;       |seg_digit:comb_84|      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|seg:comb_158|seg_digit:comb_84 ; seg_digit            ; work         ;
+;       |seg_digit:comb_85|      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|seg:comb_158|seg_digit:comb_85 ; seg_digit            ; work         ;
+;    |update_pc:comb_157|        ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |single_cycle_process|update_pc:comb_157             ; update_pc            ; work         ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++-----------------------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal                          ;
++-----------------------------------------+---------------------------------------------+
+; update_pc:comb_157|pc[0,1]              ; Stuck at GND due to stuck port data_in      ;
+; update_pc:comb_157|pc[18..31]           ; Lost fanout                                 ;
+; register_memory:comb_111|reg_mem~672    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~736    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~640    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~704    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~928    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~992    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~896    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~960    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~703    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~767    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~671    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~735    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~959    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1023   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~927    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~991    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~702    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~766    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~670    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~734    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~958    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1022   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~926    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~990    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~701    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~765    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~669    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~733    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~957    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1021   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~925    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~989    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~700    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~764    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~668    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~732    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~956    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1020   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~924    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~988    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~699    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~763    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~667    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~731    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~955    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1019   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~923    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~987    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~698    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~762    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~666    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~730    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~954    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1018   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~922    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~986    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~697    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~761    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~665    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~729    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~953    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1017   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~921    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~985    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~696    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~760    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~664    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~728    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~952    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1016   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~920    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~984    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~695    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~759    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~663    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~727    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~951    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1015   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~919    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~983    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~694    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~758    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~662    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~726    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~950    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1014   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~918    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~982    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~693    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~757    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~661    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~725    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~949    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1013   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~917    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~981    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~692    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~756    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~660    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~724    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~948    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1012   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~916    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~980    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~691    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~755    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~659    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~723    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~947    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1011   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~915    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~979    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~690    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~754    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~658    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~722    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~946    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1010   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~914    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~978    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~689    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~753    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~657    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~721    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~945    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1009   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~913    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~977    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~688    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~752    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~656    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~720    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~944    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1008   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~912    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~976    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~687    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~751    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~655    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~719    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~943    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1007   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~911    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~975    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~686    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~750    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~654    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~718    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~942    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1006   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~910    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~974    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~685    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~749    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~653    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~717    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~941    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1005   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~909    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~973    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~684    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~748    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~652    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~716    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~940    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1004   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~908    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~972    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~683    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~747    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~651    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~715    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~939    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1003   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~907    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~971    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~682    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~746    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~650    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~714    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~938    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1002   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~906    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~970    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~681    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~745    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~649    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~713    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~937    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1001   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~905    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~969    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~680    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~744    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~648    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~712    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~936    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~1000   ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~904    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~968    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~679    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~743    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~647    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~711    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~935    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~999    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~903    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~967    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~678    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~742    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~646    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~710    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~934    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~998    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~902    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~966    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~677    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~741    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~645    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~709    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~933    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~997    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~901    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~965    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~676    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~740    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~644    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~708    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~932    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~996    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~900    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~964    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~675    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~739    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~643    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~707    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~931    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~995    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~899    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~963    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~674    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~738    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~642    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~706    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~930    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~994    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~898    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~962    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~673    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~737    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~641    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~705    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~929    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~993    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~897    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~961    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~543    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~63     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~95     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~639    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~540    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~636    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~60     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~92     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~535    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~55     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~87     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~631    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~534    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~630    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~54     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~86     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~533    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~53     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~85     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~629    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~532    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~628    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~52     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~84     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~531    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~51     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~83     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~627    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~530    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~626    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~50     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~82     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~529    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~49     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~81     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~625    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~528    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~624    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~48     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~80     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~527    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~47     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~79     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~623    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~526    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~622    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~46     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~78     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~525    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~45     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~77     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~621    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~524    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~620    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~44     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~76     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~523    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~43     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~75     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~619    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~522    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~618    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~42     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~74     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~521    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~41     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~73     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~617    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~520    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~616    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~40     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~72     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~519    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~39     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~71     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~615    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~518    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~614    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~38     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~70     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~517    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~37     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~69     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~613    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~516    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~612    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~36     ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~68     ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~515    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~35     ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~67     ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~611    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~512    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~608    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~32     ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~64     ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~514    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~610    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~34     ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~66     ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~513    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~33     ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~65     ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~609    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~537    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~57     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~89     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~633    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~536    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~632    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~56     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~88     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~539    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~59     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~91     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~635    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~538    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~634    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~58     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~90     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~542    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~638    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~62     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~94     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~541    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~61     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~93     ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~637    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~191    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~255    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~159    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~223    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~447    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~511    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~479    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~831    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~895    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~799    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~863    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~188    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~252    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~156    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~220    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~444    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~508    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~476    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~828    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~892    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~796    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~860    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~183    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~247    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~151    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~215    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~439    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~503    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~471    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~823    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~887    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~791    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~855    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~182    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~246    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~150    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~214    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~438    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~502    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~470    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~822    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~886    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~790    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~854    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~181    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~245    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~149    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~213    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~437    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~501    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~469    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~821    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~885    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~789    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~853    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~180    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~244    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~148    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~212    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~436    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~500    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~468    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~820    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~884    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~788    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~852    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~179    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~243    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~147    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~211    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~435    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~499    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~467    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~819    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~883    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~787    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~851    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~178    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~242    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~146    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~210    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~434    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~498    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~466    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~818    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~882    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~786    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~850    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~177    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~241    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~145    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~209    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~433    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~497    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~465    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~817    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~881    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~785    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~849    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~176    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~240    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~144    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~208    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~432    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~496    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~464    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~816    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~880    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~784    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~848    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~175    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~239    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~143    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~207    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~431    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~495    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~463    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~815    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~879    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~783    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~847    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~174    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~238    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~142    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~206    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~430    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~494    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~462    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~814    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~878    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~782    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~846    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~173    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~237    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~141    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~205    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~429    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~493    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~461    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~813    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~877    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~781    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~845    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~172    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~236    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~140    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~204    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~428    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~492    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~460    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~812    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~876    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~780    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~844    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~171    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~235    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~139    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~203    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~427    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~491    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~459    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~811    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~875    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~779    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~843    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~170    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~234    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~138    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~202    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~426    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~490    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~458    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~810    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~874    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~778    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~842    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~169    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~233    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~137    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~201    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~425    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~489    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~457    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~809    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~873    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~777    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~841    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~168    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~232    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~136    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~200    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~424    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~488    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~456    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~808    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~872    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~776    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~840    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~167    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~231    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~135    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~199    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~423    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~487    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~455    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~807    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~871    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~775    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~839    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~166    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~230    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~134    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~198    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~422    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~486    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~454    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~806    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~870    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~774    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~838    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~165    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~229    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~133    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~197    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~421    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~485    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~453    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~805    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~869    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~773    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~837    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~164    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~228    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~132    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~196    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~420    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~484    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~452    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~804    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~868    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~772    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~836    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~163    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~227    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~131    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~195    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~419    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~483    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~451    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~803    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~867    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~771    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~835    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~160    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~224    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~128    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~192    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~416    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~480    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~448    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~800    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~864    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~768    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~832    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~162    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~226    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~130    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~194    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~418    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~482    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~450    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~802    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~866    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~770    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~834    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~161    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~225    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~129    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~193    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~417    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~481    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~449    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~801    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~865    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~769    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~833    ; Stuck at GND due to stuck port clock_enable ;
+; register_memory:comb_111|reg_mem~185    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~249    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~153    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~217    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~441    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~505    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~473    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~825    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~889    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~793    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~857    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~184    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~248    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~152    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~216    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~440    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~504    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~472    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~824    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~888    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~792    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~856    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~187    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~251    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~155    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~219    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~443    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~507    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~475    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~827    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~891    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~795    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~859    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~186    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~250    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~154    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~218    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~442    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~506    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~474    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~826    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~890    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~794    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~858    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~190    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~254    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~158    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~222    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~446    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~510    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~478    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~830    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~894    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~798    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~862    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~189    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~253    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~157    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~221    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~445    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~509    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~477    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~829    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~893    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~797    ; Stuck at GND due to stuck port clock        ;
+; register_memory:comb_111|reg_mem~861    ; Stuck at GND due to stuck port clock        ;
+; Total Number of Removed Registers = 752 ;                                             ;
++-----------------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                       ;
++--------------------------------------+-------------------------+----------------------------------------------------------------------------------+
+; Register name                        ; Reason for Removal      ; Registers Removed due to This Register                                           ;
++--------------------------------------+-------------------------+----------------------------------------------------------------------------------+
+; register_memory:comb_111|reg_mem~524 ; Stuck at GND            ; register_memory:comb_111|reg_mem~512, register_memory:comb_111|reg_mem~608,      ;
+;                                      ; due to stuck port clock ; register_memory:comb_111|reg_mem~32, register_memory:comb_111|reg_mem~64,        ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~514, register_memory:comb_111|reg_mem~610,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~34, register_memory:comb_111|reg_mem~66,        ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~513, register_memory:comb_111|reg_mem~33,       ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~65, register_memory:comb_111|reg_mem~609,       ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~539, register_memory:comb_111|reg_mem~59,       ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~91, register_memory:comb_111|reg_mem~635,       ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~171, register_memory:comb_111|reg_mem~235,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~139, register_memory:comb_111|reg_mem~203,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~427, register_memory:comb_111|reg_mem~491,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~459, register_memory:comb_111|reg_mem~811,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~875, register_memory:comb_111|reg_mem~779,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~843, register_memory:comb_111|reg_mem~170,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~234, register_memory:comb_111|reg_mem~138,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~202, register_memory:comb_111|reg_mem~426,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~490, register_memory:comb_111|reg_mem~458,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~810, register_memory:comb_111|reg_mem~874,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~778, register_memory:comb_111|reg_mem~842,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~163, register_memory:comb_111|reg_mem~227,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~131, register_memory:comb_111|reg_mem~195,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~419, register_memory:comb_111|reg_mem~483,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~451, register_memory:comb_111|reg_mem~803,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~867, register_memory:comb_111|reg_mem~771,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~835, register_memory:comb_111|reg_mem~160,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~224, register_memory:comb_111|reg_mem~128,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~192, register_memory:comb_111|reg_mem~416,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~480, register_memory:comb_111|reg_mem~448,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~800, register_memory:comb_111|reg_mem~864,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~768, register_memory:comb_111|reg_mem~832,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~162, register_memory:comb_111|reg_mem~226,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~130, register_memory:comb_111|reg_mem~194,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~418, register_memory:comb_111|reg_mem~482,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~450, register_memory:comb_111|reg_mem~802,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~866, register_memory:comb_111|reg_mem~770,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~834, register_memory:comb_111|reg_mem~161,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~225, register_memory:comb_111|reg_mem~129,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~193, register_memory:comb_111|reg_mem~417,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~481, register_memory:comb_111|reg_mem~449,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~801, register_memory:comb_111|reg_mem~865,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~769, register_memory:comb_111|reg_mem~833,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~187, register_memory:comb_111|reg_mem~251,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~155, register_memory:comb_111|reg_mem~219,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~443, register_memory:comb_111|reg_mem~507,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~475, register_memory:comb_111|reg_mem~827,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~891, register_memory:comb_111|reg_mem~795,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~859                                             ;
+; register_memory:comb_111|reg_mem~519 ; Stuck at GND            ; register_memory:comb_111|reg_mem~537, register_memory:comb_111|reg_mem~57,       ;
+;                                      ; due to stuck port clock ; register_memory:comb_111|reg_mem~89, register_memory:comb_111|reg_mem~633,       ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~178, register_memory:comb_111|reg_mem~242,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~146, register_memory:comb_111|reg_mem~210,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~434, register_memory:comb_111|reg_mem~498,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~466, register_memory:comb_111|reg_mem~818,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~882, register_memory:comb_111|reg_mem~786,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~850, register_memory:comb_111|reg_mem~176,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~240, register_memory:comb_111|reg_mem~144,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~208, register_memory:comb_111|reg_mem~432,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~496, register_memory:comb_111|reg_mem~464,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~816, register_memory:comb_111|reg_mem~880,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~784, register_memory:comb_111|reg_mem~848,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~168, register_memory:comb_111|reg_mem~232,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~136, register_memory:comb_111|reg_mem~200,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~424, register_memory:comb_111|reg_mem~488,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~456, register_memory:comb_111|reg_mem~808,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~872, register_memory:comb_111|reg_mem~776,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~840, register_memory:comb_111|reg_mem~185,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~249, register_memory:comb_111|reg_mem~153,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~217, register_memory:comb_111|reg_mem~441,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~505, register_memory:comb_111|reg_mem~473,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~825, register_memory:comb_111|reg_mem~889,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~793, register_memory:comb_111|reg_mem~857       ;
+; register_memory:comb_111|reg_mem~39  ; Stuck at GND            ; register_memory:comb_111|reg_mem~538, register_memory:comb_111|reg_mem~634,      ;
+;                                      ; due to stuck port clock ; register_memory:comb_111|reg_mem~58, register_memory:comb_111|reg_mem~90,        ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~169, register_memory:comb_111|reg_mem~233,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~137, register_memory:comb_111|reg_mem~201,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~425, register_memory:comb_111|reg_mem~489,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~457, register_memory:comb_111|reg_mem~809,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~873, register_memory:comb_111|reg_mem~777,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~841, register_memory:comb_111|reg_mem~186,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~250, register_memory:comb_111|reg_mem~154,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~218, register_memory:comb_111|reg_mem~442,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~506, register_memory:comb_111|reg_mem~474,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~826, register_memory:comb_111|reg_mem~890,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~794, register_memory:comb_111|reg_mem~858       ;
+; update_pc:comb_157|pc[31]            ; Lost Fanouts            ; update_pc:comb_157|pc[30], update_pc:comb_157|pc[29], update_pc:comb_157|pc[28], ;
+;                                      ;                         ; update_pc:comb_157|pc[27], update_pc:comb_157|pc[26], update_pc:comb_157|pc[25], ;
+;                                      ;                         ; update_pc:comb_157|pc[24], update_pc:comb_157|pc[23], update_pc:comb_157|pc[22], ;
+;                                      ;                         ; update_pc:comb_157|pc[21], update_pc:comb_157|pc[20], update_pc:comb_157|pc[19], ;
+;                                      ;                         ; update_pc:comb_157|pc[18]                                                        ;
+; register_memory:comb_111|reg_mem~518 ; Stuck at GND            ; register_memory:comb_111|reg_mem~191, register_memory:comb_111|reg_mem~255,      ;
+;                                      ; due to stuck port clock ; register_memory:comb_111|reg_mem~159, register_memory:comb_111|reg_mem~223,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~447, register_memory:comb_111|reg_mem~511,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~479, register_memory:comb_111|reg_mem~831,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~895, register_memory:comb_111|reg_mem~799,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~863                                             ;
+; register_memory:comb_111|reg_mem~38  ; Stuck at GND            ; register_memory:comb_111|reg_mem~167, register_memory:comb_111|reg_mem~231,      ;
+;                                      ; due to stuck port clock ; register_memory:comb_111|reg_mem~135, register_memory:comb_111|reg_mem~199,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~423, register_memory:comb_111|reg_mem~487,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~455, register_memory:comb_111|reg_mem~807,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~871, register_memory:comb_111|reg_mem~775,      ;
+;                                      ;                         ; register_memory:comb_111|reg_mem~839                                             ;
++--------------------------------------+-------------------------+----------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 361   ;
+; Number of registers using Synchronous Clear  ; 275   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 73    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 288   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; seg:comb_158|h0[0]                      ; 7       ;
+; seg:comb_158|h0[1]                      ; 7       ;
+; seg:comb_158|h0[2]                      ; 7       ;
+; seg:comb_158|h0[3]                      ; 7       ;
+; seg:comb_158|h1[0]                      ; 7       ;
+; seg:comb_158|h1[1]                      ; 7       ;
+; seg:comb_158|h1[2]                      ; 7       ;
+; seg:comb_158|h1[3]                      ; 7       ;
+; seg:comb_158|h2[0]                      ; 7       ;
+; seg:comb_158|h2[1]                      ; 7       ;
+; seg:comb_158|h2[2]                      ; 7       ;
+; seg:comb_158|h2[3]                      ; 7       ;
+; seg:comb_158|h3[0]                      ; 7       ;
+; seg:comb_158|h3[1]                      ; 7       ;
+; seg:comb_158|h3[2]                      ; 7       ;
+; seg:comb_158|h3[3]                      ; 7       ;
+; seg:comb_158|h4[0]                      ; 7       ;
+; seg:comb_158|h4[1]                      ; 7       ;
+; seg:comb_158|h4[2]                      ; 7       ;
+; seg:comb_158|h4[3]                      ; 7       ;
+; seg:comb_158|h5[0]                      ; 7       ;
+; seg:comb_158|h5[1]                      ; 7       ;
+; seg:comb_158|h5[2]                      ; 7       ;
+; seg:comb_158|h5[3]                      ; 7       ;
+; Total number of inverted registers = 24 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 3:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |single_cycle_process|update_pc:comb_157|pc[9]     ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |single_cycle_process|aludec:comb_93|Mux2          ;
+; 4:1                ; 25 bits   ; 50 LEs        ; 50 LEs               ; 0 LEs                  ; No         ; |single_cycle_process|alu_mips:comb_113|ShiftLeft0 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |single_cycle_process|alu_mips:comb_113|ShiftLeft0 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |single_cycle_process|alu_mips:comb_113|ShiftLeft0 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |single_cycle_process|alu_mips:comb_113|ShiftLeft0 ;
+; 9:1                ; 15 bits   ; 90 LEs        ; 60 LEs               ; 30 LEs                 ; No         ; |single_cycle_process|alu_mips:comb_113|Mux16      ;
+; 12:1               ; 12 bits   ; 96 LEs        ; 72 LEs               ; 24 LEs                 ; No         ; |single_cycle_process|alu_mips:comb_113|Mux11      ;
+; 15:1               ; 4 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |single_cycle_process|alu_mips:comb_113|Mux3       ;
+; 193:1              ; 32 bits   ; 4096 LEs      ; 1408 LEs             ; 2688 LEs               ; No         ; |single_cycle_process|mux:comb_115|result[2]       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seg:comb_158|bin2bcd:comb_4"                                                               ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; bcd[19..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seg:comb_158|bin2bcd:comb_3"                                                              ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; bcd[19..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "mux:comb_156"         ;
++----------------+-------+----------+--------------+
+; Port           ; Type  ; Severity ; Details      ;
++----------------+-------+----------+--------------+
+; non_zero[1..0] ; Input ; Info     ; Stuck at GND ;
++----------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 361                         ;
+;     CLR               ; 41                          ;
+;     CLR SCLR          ; 32                          ;
+;     ENA               ; 45                          ;
+;     ENA SCLR          ; 243                         ;
+; arriav_lcell_comb     ; 956                         ;
+;     arith             ; 97                          ;
+;         1 data inputs ; 51                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 9                           ;
+;         4 data inputs ; 1                           ;
+;         5 data inputs ; 32                          ;
+;     extend            ; 90                          ;
+;         7 data inputs ; 90                          ;
+;     normal            ; 769                         ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 99                          ;
+;         3 data inputs ; 54                          ;
+;         4 data inputs ; 224                         ;
+;         5 data inputs ; 154                         ;
+;         6 data inputs ; 231                         ;
+; boundary_port         ; 44                          ;
+;                       ;                             ;
+; Max LUT depth         ; 17.00                       ;
+; Average LUT depth     ; 11.24                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:12     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Wed Dec 23 18:36:48 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off single_cycle_process -c single_cycle_process
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file bin2bcd.v
+    Info (12023): Found entity 1: bin2bcd File: C:/intelFPGA_lite/18.1/SingleCycleProcess/bin2bcd.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file seg_digit.v
+    Info (12023): Found entity 1: seg_digit File: C:/intelFPGA_lite/18.1/SingleCycleProcess/seg_digit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file update_pc.v
+    Info (12023): Found entity 1: update_pc File: C:/intelFPGA_lite/18.1/SingleCycleProcess/update_pc.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file seg.v
+    Info (12023): Found entity 1: seg File: C:/intelFPGA_lite/18.1/SingleCycleProcess/seg.v Line: 1
+Warning (12090): Entity "mux" obtained from "mux.v" instead of from Quartus Prime megafunction library File: C:/intelFPGA_lite/18.1/SingleCycleProcess/mux.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux.v
+    Info (12023): Found entity 1: mux File: C:/intelFPGA_lite/18.1/SingleCycleProcess/mux.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file register_memory.v
+    Info (12023): Found entity 1: register_memory File: C:/intelFPGA_lite/18.1/SingleCycleProcess/register_memory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file data_memory.v
+    Info (12023): Found entity 1: data_memory File: C:/intelFPGA_lite/18.1/SingleCycleProcess/data_memory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file control.v
+    Info (12023): Found entity 1: control File: C:/intelFPGA_lite/18.1/SingleCycleProcess/control.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file single_cycle_process.v
+    Info (12023): Found entity 1: single_cycle_process File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sign_ex.v
+    Info (12023): Found entity 1: sign_ex File: C:/intelFPGA_lite/18.1/SingleCycleProcess/sign_ex.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file instruction_memory.v
+    Info (12023): Found entity 1: instruction_memory File: C:/intelFPGA_lite/18.1/SingleCycleProcess/instruction_memory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file clk_dll.v
+    Info (12023): Found entity 1: clk_dll File: C:/intelFPGA_lite/18.1/SingleCycleProcess/clk_dll.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu_mips.v
+    Info (12023): Found entity 1: alu_mips File: C:/intelFPGA_lite/18.1/SingleCycleProcess/alu_mips.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file aludec.v
+    Info (12023): Found entity 1: aludec File: C:/intelFPGA_lite/18.1/SingleCycleProcess/aludec.v Line: 1
+Critical Warning (10846): Verilog HDL Instantiation warning at seg.v(12): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/seg.v Line: 12
+Critical Warning (10846): Verilog HDL Instantiation warning at seg.v(13): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/seg.v Line: 13
+Critical Warning (10846): Verilog HDL Instantiation warning at seg.v(34): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/seg.v Line: 34
+Critical Warning (10846): Verilog HDL Instantiation warning at seg.v(35): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/seg.v Line: 35
+Critical Warning (10846): Verilog HDL Instantiation warning at seg.v(36): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/seg.v Line: 36
+Critical Warning (10846): Verilog HDL Instantiation warning at seg.v(37): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/seg.v Line: 37
+Critical Warning (10846): Verilog HDL Instantiation warning at seg.v(39): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/seg.v Line: 39
+Critical Warning (10846): Verilog HDL Instantiation warning at seg.v(40): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/seg.v Line: 40
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(46): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 46
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(47): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 47
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(58): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 58
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(59): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 59
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(60): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 60
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(68): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 68
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(69): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 69
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(71): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 71
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(72): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 72
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(74): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 74
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(84): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 84
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(85): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 85
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(87): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 87
+Critical Warning (10846): Verilog HDL Instantiation warning at single_cycle_process.v(89): instance has no name File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 89
+Info (12127): Elaborating entity "single_cycle_process" for the top level hierarchy
+Info (12128): Elaborating entity "clk_dll" for hierarchy "clk_dll:comb_3" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 46
+Info (12128): Elaborating entity "instruction_memory" for hierarchy "instruction_memory:comb_4" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 47
+Warning (10030): Net "mem[49]" at instruction_memory.v(5) has no driver or initial value, using a default initial value '0' File: C:/intelFPGA_lite/18.1/SingleCycleProcess/instruction_memory.v Line: 5
+Info (12128): Elaborating entity "control" for hierarchy "control:comb_92" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 58
+Info (12128): Elaborating entity "aludec" for hierarchy "aludec:comb_93" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 59
+Info (12128): Elaborating entity "sign_ex" for hierarchy "sign_ex:comb_94" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 60
+Info (12128): Elaborating entity "register_memory" for hierarchy "register_memory:comb_111" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 68
+Info (12128): Elaborating entity "mux" for hierarchy "mux:comb_112" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 69
+Info (12128): Elaborating entity "alu_mips" for hierarchy "alu_mips:comb_113" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 71
+Warning (10235): Verilog HDL Always Construct warning at alu_mips.v(17): variable "shamt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/intelFPGA_lite/18.1/SingleCycleProcess/alu_mips.v Line: 17
+Warning (10230): Verilog HDL assignment warning at alu_mips.v(22): truncated value with size 32 to match size of target (1) File: C:/intelFPGA_lite/18.1/SingleCycleProcess/alu_mips.v Line: 22
+Info (12128): Elaborating entity "data_memory" for hierarchy "data_memory:comb_114" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 72
+Warning (10235): Verilog HDL Always Construct warning at data_memory.v(16): variable "idx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/intelFPGA_lite/18.1/SingleCycleProcess/data_memory.v Line: 16
+Info (12128): Elaborating entity "update_pc" for hierarchy "update_pc:comb_157" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 87
+Info (12128): Elaborating entity "seg" for hierarchy "seg:comb_158" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/single_cycle_process.v Line: 89
+Info (12128): Elaborating entity "bin2bcd" for hierarchy "seg:comb_158|bin2bcd:comb_3" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/seg.v Line: 12
+Warning (10230): Verilog HDL assignment warning at bin2bcd.v(11): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/SingleCycleProcess/bin2bcd.v Line: 11
+Warning (10230): Verilog HDL assignment warning at bin2bcd.v(12): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/SingleCycleProcess/bin2bcd.v Line: 12
+Warning (10230): Verilog HDL assignment warning at bin2bcd.v(13): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/SingleCycleProcess/bin2bcd.v Line: 13
+Warning (10230): Verilog HDL assignment warning at bin2bcd.v(14): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/SingleCycleProcess/bin2bcd.v Line: 14
+Warning (10230): Verilog HDL assignment warning at bin2bcd.v(15): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/SingleCycleProcess/bin2bcd.v Line: 15
+Info (12128): Elaborating entity "seg_digit" for hierarchy "seg:comb_158|seg_digit:comb_80" File: C:/intelFPGA_lite/18.1/SingleCycleProcess/seg.v Line: 34
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "register_memory:comb_111|reg_mem" is uninferred due to asynchronous read logic File: C:/intelFPGA_lite/18.1/SingleCycleProcess/register_memory.v Line: 10
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 14 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/intelFPGA_lite/18.1/SingleCycleProcess/output_files/single_cycle_process.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1283 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 42 output pins
+    Info (21061): Implemented 1239 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 33 warnings
+    Info: Peak virtual memory: 4839 megabytes
+    Info: Processing ended: Wed Dec 23 18:37:21 2020
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:00:50
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/intelFPGA_lite/18.1/SingleCycleProcess/output_files/single_cycle_process.map.smsg.
+
+
